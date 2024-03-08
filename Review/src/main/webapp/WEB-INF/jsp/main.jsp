@@ -17,7 +17,11 @@
   <c:forEach var="list" items="${list}" varStatus="status">
     <tr>
         <td><p>${list.pstId }</p></td>
-        <td><p>${list.pstTitle }</p></td>
+        <td>
+          <a href="/post-detail?id=${list.pstId}">
+            <p>${list.pstTitle }</p>
+          </a>
+        </td>
         <td><p>${list.pstText }</p></td>
     </tr>
   </c:forEach>
