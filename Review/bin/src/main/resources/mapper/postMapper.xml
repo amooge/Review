@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eugeneprogram.post.DAO.PostMapper">
+    <select id="getList" resultType="java.util.Map">
+        SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
+        FROM pst
+    </select>
+    
+    <select id="getOne" parameterType="long" resultType="java.util.Map">
+		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
+		FROM pst
+		WHERE pst_id = ${pstId}
+	</select>
+</mapper>
