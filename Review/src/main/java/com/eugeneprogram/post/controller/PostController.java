@@ -1,6 +1,10 @@
 package com.eugeneprogram.post.controller;
 // test commit
 
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +36,26 @@ public class PostController {
 		return "post-form";
 	}
 	
+	
+	@RequestMapping(value = "/post-add-update")
+	public String postAddUpdate(@RequestParam("id") long pstId,
+							 @RequestParam("text") String text,
+							 @RequestParam("title") String title,
+							 @RequestParam("mbId") long mbId,
+							 @RequestParam("ctgId") long ctgId) throws Exception{
+		
+		Map<String, Object> pst = new HashMap<String, Object>();
+		pst.put("pstId", pstId);
+		pst.put("pstTitle", title);
+		pst.put("pstText", text);
+		pst.put("mbId", mbId);
+		pst.put("ctgId", ctgId);
+		
+		postService.addAndUpdate(pst);
+		
+		return "/";
+	}
+	/*
+	*/
 	
 }
