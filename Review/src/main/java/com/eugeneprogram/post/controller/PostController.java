@@ -31,7 +31,7 @@ public class PostController {
 	}
 	
 	
-	//;
+	//;;
 	@RequestMapping(value = "/post-form")
 	public String postForm(Model model, @RequestParam("id") long id) throws Exception{
 		model.addAttribute("post", postService.getForm(id));
