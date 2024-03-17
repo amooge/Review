@@ -8,6 +8,12 @@
 </head>
 <body>
   <h1>Post page</h1>
+
+  <form name="serch" action="/post" method="post">
+    <input name="search" type="search"/>
+    <input type="submit" value="search"/>
+  </form>
+
   <table>
     <tr>
       <th>pk</th>

@@ -5,6 +5,7 @@
     <select id="getList" resultType="java.util.Map">
         SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
         FROM pst
+        WHERE pst_title like CONCAT('%', #{search}, '%')
     </select>
     
     <select id="getOne" parameterType="long" resultType="java.util.Map">

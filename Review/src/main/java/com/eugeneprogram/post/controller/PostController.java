@@ -23,8 +23,10 @@ public class PostController {
 	 * 개시물 목록을 보여주는 post.jsp 페이지로 이동
 	 */
 	@RequestMapping(value = "/post")
-	public String goPost(Model model) throws Exception {
-		model.addAttribute("list", postService.getList());
+	public String goPost(Model model,
+						 @RequestParam(name="search", required=false) String search) throws Exception {
+		
+		model.addAttribute("list", postService.getList(search));
 		return "post";
 	}
 	

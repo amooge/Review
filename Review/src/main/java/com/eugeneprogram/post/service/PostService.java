@@ -17,8 +17,12 @@ public class PostService {
 	@Autowired
 	PostMapper postMapper;
 	
-	public List<Map<String, Object>>  getList() throws Exception {
-		return postMapper.getList();
+	public List<Map<String, Object>>  getList(String search) throws Exception {
+		if(search == null) {
+			search = "";
+		}
+		//return null;
+		return postMapper.getList(search);
 	}
 	
 	/*
