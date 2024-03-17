@@ -21,27 +21,39 @@ public class PostService {
 		return postMapper.getList();
 	}
 	
-	public Map<String, Object> getForm(long id)throws Exception{
-		Long pstId = id;
+	/*
+	 * pstId 가 null인 경우 DB에 조회할 값이 없음 -> 수정이 아닌 추가!
+	 * pstId가 값이 있는 경우 DB에 조회할 값이 있으므로 수정할 값을 가져옴! 
+	 */
+	public Map<String, Object> getForm(Long pstId)throws Exception{
 		Map<String, Object> post = new HashMap<String, Object>();
+		//Long 0 == null
 		if(pstId.equals(null)) {
 			post.put("title", "");
 			post.put("text", "");
 			
 		}else {
-		 post = postMapper.getOne(id);
+		 post = postMapper.getOne(pstId);
 		 
 		}
 		return post;
 	}
 	
 	// Exception ?
+	/*
+	 * pstId가 null값이면 추가 
+	 * pstId가 값이 있으면 수정
+	 */
 	public void addAndUpdate(Map<String, Object> pst) throws Exception{
 		if(postMapper.getOne((long) pst.get("pstId")) == null || pst.get("pstId") == null) {
 			postMapper.insertPost(pst);
 		}else {
-			postMapper.updatePost(pst, (long)pst.get("pstId"));
+			postMapper.updatePost(pst);
 		}
+	}
+	
+	public void deletePost(long pstId) throws Exception{
+		postMapper.deletePost(pstId);
 	}
 	
 	

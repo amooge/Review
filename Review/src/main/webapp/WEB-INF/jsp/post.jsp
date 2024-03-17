@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>post list</title>
 </head>
 <body>
-  <h1>Main page</h1>
+  <h1>Post page</h1>
   <table>
     <tr>
       <th>pk</th>
@@ -27,5 +27,6 @@
   </c:forEach>
           
   </table>
+  <a href="/post-form">post_add</a>
 </body>
 </html>

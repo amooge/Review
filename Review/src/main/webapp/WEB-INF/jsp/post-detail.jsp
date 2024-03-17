@@ -22,7 +22,8 @@
         </tr>
     </table>
 
-    <a href="post-form?id=${post.pstId}">수정</a>
+    <a href="/post-form?id=${post.pstId}">수정</a>
+    <a href="/post-delete?id=${post.pstId}">delete</a>
 <!--
   <button type="button" onclick="href='/post-form?id=${post.pstId}'">수정</button>
 -->  

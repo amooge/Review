@@ -22,18 +22,21 @@
 	
 	<update id="updatePost" parameterType="java.util.Map">
 		UPDATE pst SET
-			pst_title = #{pstTitle}
-			pst_text = #{pstText}
-			pst_create_date = #{pstCreateDate}
-			pst_update_date = #{pstUpdateDate}
-			pst_score = #{pstScore}
-			pst_comment_cnt = #{pstCommentCnt}
-			pst_image = #{pstImage}
-			ctg_id = #{ctgId}
+			pst_title = #{pstTitle},
+			pst_text = #{pstText},
+			pst_create_date = #{pstCreateDate},
+			pst_update_date = #{pstUpdateDate},
+			pst_score = #{pstScore},
+			pst_comment_cnt = #{pstCommentCnt},
+			pst_image = #{pstImage},
+			ctg_id = #{ctgId},
 			mb_id = #{mbId}
-		WHERE = #{pstId}
+		WHERE pst_id = #{pstId}
 	</update>
-	<!--
-	-->
+	
+	
+	<delete id="deletePost" parameterType="long">
+		DELETE FROM pst WHERE pst_id = #{pstId}
+	</delete>
 	
 </mapper>
