@@ -7,21 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h1>Main page</h1>
+  <h1>Main Page</h1>
   <table>
-    <tr>
-      <th>pk</th>
-      <th>Title</th>
-      <th>text</th>
-    </tr>
-  <c:forEach var="list" items="${list}" varStatus="status">
-    <tr>
-        <td><p>${list.pstId }</p></td>
-        <td><p>${list.pstTitle }</p></td>
-        <td><p>${list.pstText }</p></td>
-    </tr>
-  </c:forEach>
+   
           
   </table>
+  <a href="/member">Member Informations</a>
 </body>
 </html>

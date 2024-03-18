@@ -4,6 +4,7 @@ package com.eugeneprogram.post.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
 
@@ -21,7 +22,7 @@ public class PostController {
 	}
 	
 	@RequestMapping(value = "/post-form")
-	public String postForm(Model model, long id) throws Exception{
+	public String postForm(Model model, @RequestParam("id") long id) throws Exception{
 		model.addAttribute("post", postService.getForm(id));
 		return "post-form";
 	}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eugeneprogram.member.DAO.MemberMapper">
+	
+	<select id="getOnemb" parameterType = "long" resultType="java.util.Map">
+		 SELECT mb_id mbId, mb_name mbName, mb_phone mbPhone,mb_birth mbBirth,mb_mail mbMail, mb_pw mbPw, mb_nick_name mbNickname,mb_admin mbAdmin,mb_gender mbGender, mb_flag mbFlag
+		 from mb
+		 WHERE mb_id = #{mbId}
+	</select>
+	
+	<select id="getList" resultType="java.util.Map">
+		 SELECT mb_id mbId, mb_name mbName, mb_phone mbPhone,mb_birth mbBirth,mb_mail mbMail, mb_pw mbPw, mb_nick_name mbNickname,mb_admin mbAdmin,mb_gender mbGender, mb_flag mbFlag
+		 from mb
+		 
+	</select>
+	
+	<insert id = "insertMember" parameterType = "java.util.Map" >
+		INSERT INTO mb (mb_id,mb_name,mb_phone,mb_birth,mb_mail,mb_pw,mb_nick_name,mb_admin,mb_gender,mb_flag)
+		VALUES (#{mbId},#{mbName},#{mbPhone},#{mbBirth},#{mbMail},#{mbPw},#{mbNickname},#{mbAdmin},#{mbGender},#{mbFlag})		
+	</insert>
+	
+	<update id = "updateMember" parameterType = "java.util.Map" >
+		UPDATE mb
+		SET mb_id = #{mbId}, mb_name = #{mbName}, mb_phone = #{mbPhone}, mb_birth = #{mbBirth}, mb_pw = #{mbPw} , mb_nick_name = #{mbNickname}, mb_admin = #{mbAdmin}, mb_gender = #{mbGender}, mb_flag = #{mbFlag}
+		WHERE mb_id=#{mbId}
+	</update>
+	
+	<delete id="deleteMember" parameterType="java.util.Map">
+		DELETE FROM mb WHERE mb_id = #{mbId}
+		
+	</delete>
+	
+</mapper>
