@@ -1,4 +1,5 @@
 package com.eugeneprogram.member.service;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.eugeneprogram.member.DAO.MemberMapper;
+import com.eugeneprogram.member.dao.MemberMapper;
 
 @Service
 public class MemberService {
@@ -40,8 +41,16 @@ public class MemberService {
 		
 	}
 	
-	public void deleteMember(long id) throws Exception{
-		memberMapper.deleteMember(id);
+	public void deleteMember(long mbId)throws Exception{
+	memberMapper.deleteMember(mbId);
+	}
+	
+	public void Login(Map<String, Object> mb) throws Exception{
+		if(memberMapper.getOnemb((long)mb.get("mbId")) == null || mb.get("mbId") == null) {
+			memberMapper.loginmb(mb);
+		}
+		
+		
 	}
 	
 

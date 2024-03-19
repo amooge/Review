@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.eugeneprogram.member.DAO.MemberMapper">
+<mapper namespace="com.eugeneprogram.member.dao.MemberMapper">
 	
 	<select id="getOnemb" parameterType = "long" resultType="java.util.Map">
 		 SELECT mb_id mbId, mb_name mbName, mb_phone mbPhone,mb_birth mbBirth,mb_mail mbMail, mb_pw mbPw, mb_nick_name mbNickname,mb_admin mbAdmin,mb_gender mbGender, mb_flag mbFlag
@@ -22,13 +22,21 @@
 	
 	<update id = "updateMember" parameterType = "java.util.Map" >
 		UPDATE mb
-		SET mb_id = #{mbId}, mb_name = #{mbName}, mb_phone = #{mbPhone}, mb_birth = #{mbBirth}, mb_pw = #{mbPw} , mb_nick_name = #{mbNickname}, mb_admin = #{mbAdmin}, mb_gender = #{mbGender}, mb_flag = #{mbFlag}
+		SET mb_id = #{mbId}, mb_name = #{mbName}, mb_phone = #{mbPhone}, mb_birth = #{mbBirth}, mb_pw = #{mbPw} , mb_nick_name = #{mbNickname}, mb_admin = #{mbAdmin}, mb_mail = #{mbMail}, mb_flag = #{mbFlag}
 		WHERE mb_id=#{mbId}
 	</update>
 	
-	<delete id="deleteMember" parameterType="java.util.Map">
+	<delete id="deleteMember" parameterType="long" >
 		DELETE FROM mb WHERE mb_id = #{mbId}
 		
 	</delete>
 	
+	<update id="updateFlagmb" parameterType = "java.util.Map">
+		UPDATE mb
+		SET mb_flag = #{mbFlag}
+		WHERE mb_id=#{mbId}
+	</update>
+	
+	
 </mapper>
+

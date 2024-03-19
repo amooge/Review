@@ -1,6 +1,7 @@
 package com.eugeneprogram.member.controller;
 
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,8 +75,13 @@ public class MemberController {
 		memberService.deleteMember(mbId);
 		return "redirect:member";
 	}
+	
+	
+	
+	
+	
 
 	
 	
-	
 }
+

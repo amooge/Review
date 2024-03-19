@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>post detail</title>
 </head>
-<body>
+  <body>
+
+    <h1>Update page</h1>
+
+    <form action="/post-add-update" method="POST">
+        title: <input name="title" type="text" value="${post.pstTitle}"/>
+        text: <input name="text" type="text" value="${post.pstText}"/>
+        <input name="pstId" type="hidden" value="${post.pstId}"/>
+        <input name="mbId" type="hidden" value="1"/>
+        <input name="ctgId" type="hidden" value="1"/>
+
+        <input type="submit" value="save"/>
+    </form>
   
-</body>
+  </body>
 </html>
