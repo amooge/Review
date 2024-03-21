@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 
-@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao"})
+@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao","com.eugeneprogram.category.dao"})
 @EnableTransactionManagement
 
 public class DbConfig {
