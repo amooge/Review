@@ -12,7 +12,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@MapperScan(basePackages = "com.eugeneprogram.post.DAO")
+@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao"})
 @EnableTransactionManagement
 public class DbConfig {
 	

@@ -9,7 +9,7 @@
     </select>
     
     <select id="getOne" parameterType="long" resultType="java.util.Map">
-		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
+		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText, pst_create_date pstCreateDate, pst_update_date pstUpdateDate
 		FROM pst
 		WHERE pst_id = #{pstId}
 	</select>

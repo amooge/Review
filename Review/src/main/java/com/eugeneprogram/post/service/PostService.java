@@ -4,10 +4,11 @@ package com.eugeneprogram.post.service;
 
 import java.util.List;
 import java.util.Map;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; //  
 import org.springframework.stereotype.Service;
 
 import com.eugeneprogram.post.dao.PostMapper;
@@ -50,8 +51,10 @@ public class PostService {
 	 */
 	public void addAndUpdate(Map<String, Object> pst) throws Exception{
 		if(postMapper.getOne((long) pst.get("pstId")) == null || pst.get("pstId") == null) {
+			pst.put("pstCreateDate", LocalDateTime.now());
 			postMapper.insertPost(pst);
 		}else {
+			pst.put("pstUpdateDate", LocalDateTime.now());
 			postMapper.updatePost(pst);
 		}
 	}
