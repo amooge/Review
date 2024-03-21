@@ -2,14 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.eugeneprogram.post.dao.PostMapper">
-    <select id="getList" resultType="java.util.Map">
+    <select id="getList" parameterType="java.util.Map" resultType="java.util.Map">
         SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
         FROM pst
         WHERE pst_title like CONCAT('%', #{search}, '%')
-    </select>
+        <choose>
+			<when test="kind == 0">
+				ORDER BY pst_create_date DESC
+			</when>
+			<otherwise>
+				ORDER BY pst_score DESC
+			</otherwise>
+		</choose>
+    </select>	
     
     <select id="getOne" parameterType="long" resultType="java.util.Map">
-		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
+		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText, pst_create_date pstCreateDate, pst_update_date pstUpdateDate
 		FROM pst
 		WHERE pst_id = #{pstId}
 	</select>

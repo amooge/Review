@@ -12,6 +12,11 @@
   <form name="serch" action="/post" method="post">
     <input name="search" type="search"/>
     <input type="submit" value="search"/>
+
+    <select name="kind" id="search">
+      <option value="0" selected>latest</option>
+      <option value="1">score</option>
+    </select>
   </form>
 
   <table>

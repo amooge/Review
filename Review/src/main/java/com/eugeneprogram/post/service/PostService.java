@@ -4,10 +4,11 @@ package com.eugeneprogram.post.service;
 
 import java.util.List;
 import java.util.Map;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; //  
 import org.springframework.stereotype.Service;
 
 import com.eugeneprogram.post.dao.PostMapper;
@@ -17,12 +18,19 @@ public class PostService {
 	@Autowired
 	PostMapper postMapper;
 	
-	public List<Map<String, Object>>  getList(String search) throws Exception {
+	public List<Map<String, Object>>  getList(String search, int kind) throws Exception {
+		Map<String, Object> searchList = new HashMap<String, Object>();
+		
 		if(search == null) {
-			search = "";
+			searchList.put("search", "");
+			//search = "";
+		}else {
+			searchList.put("search", search);
 		}
-		//return null;
-		return postMapper.getList(search);
+		
+		searchList.put("kind", kind);
+		
+		return postMapper.getList(searchList);
 	}
 	
 	/*
@@ -50,8 +58,10 @@ public class PostService {
 	 */
 	public void addAndUpdate(Map<String, Object> pst) throws Exception{
 		if(postMapper.getOne((long) pst.get("pstId")) == null || pst.get("pstId") == null) {
+			pst.put("pstCreateDate", LocalDateTime.now());
 			postMapper.insertPost(pst);
 		}else {
+			pst.put("pstUpdateDate", LocalDateTime.now());
 			postMapper.updatePost(pst);
 		}
 	}

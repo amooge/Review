@@ -21,6 +21,14 @@
             <td><p>${post.pstText }</p></td>
         </tr>
     </table>
+    <c:choose>
+      <c:when test="${post.pstCreateDate ne null}">
+        create date: ${post.pstCreateDate} <br/>
+      </c:when>
+      <c:otherwise>
+        update date: ${post.pstUpdateDate} <br/>
+      </c:otherwise>
+    </c:choose>
 
     <a href="/post-form?id=${post.pstId}">수정</a>
     <a href="/post-delete?id=${post.pstId}">delete</a>
