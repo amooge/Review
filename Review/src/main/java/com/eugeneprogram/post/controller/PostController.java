@@ -24,9 +24,10 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/post")
 	public String goPost(Model model,
-						 @RequestParam(name="search", required=false) String search) throws Exception {
+						 @RequestParam(name="search", required=false) String search,
+						 @RequestParam(name="kind", defaultValue="0") int kind) throws Exception {
 		
-		model.addAttribute("list", postService.getList(search));
+		model.addAttribute("list", postService.getList(search, kind));
 		return "post";
 	}
 	

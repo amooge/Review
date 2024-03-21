@@ -18,12 +18,19 @@ public class PostService {
 	@Autowired
 	PostMapper postMapper;
 	
-	public List<Map<String, Object>>  getList(String search) throws Exception {
+	public List<Map<String, Object>>  getList(String search, int kind) throws Exception {
+		Map<String, Object> searchList = new HashMap<String, Object>();
+		
 		if(search == null) {
-			search = "";
+			searchList.put("search", "");
+			//search = "";
+		}else {
+			searchList.put("search", search);
 		}
-		//return null;
-		return postMapper.getList(search);
+		
+		searchList.put("kind", kind);
+		
+		return postMapper.getList(searchList);
 	}
 	
 	/*
