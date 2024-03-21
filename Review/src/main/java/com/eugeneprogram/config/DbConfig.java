@@ -13,9 +13,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 
-@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao","com.eugeneprogram.category.dao"})
-@EnableTransactionManagement
 
+@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao","com.eugeneprogram.category.dao"})
+
+@EnableTransactionManagement
 public class DbConfig {
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
