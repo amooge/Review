@@ -12,10 +12,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@MapperScan(basePackages = "com.eugeneprogram.post.DAO")
+//@MapperScan(basePackages = "com.eugeneprogram.post.dao")
+@MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao"})
 @EnableTransactionManagement
+
 public class DbConfig {
-	
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
@@ -30,4 +31,5 @@ public class DbConfig {
 		final SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory);
 		return sqlSessionTemplate;
 	}
+
 }

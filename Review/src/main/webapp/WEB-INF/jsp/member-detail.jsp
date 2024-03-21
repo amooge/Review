@@ -8,18 +8,20 @@
 </head>
   <body>
 
-    <h1>Main page</h1>
+    <h1>멤버 정보</h1>
     <table>
-        <tr>
-          <th>ID</th>
-      <th>Name</th>
-      <th>Password</th>
-      <th>Nickname</th>
-      <th>Mail</th>
-      <th>Phone</th>
-      <th>Birth</th>
-      <th>Flag</th>
-      <th>Admin</th>
+        
+          <tr class="mycolor2">
+            <td width="10%">아이디</td>
+            <td width="10%">이름</td>
+            <td width="10%">암호</td>
+            <td width="10%">닉네임</td>
+            <td width="15%">메일</td>
+            <td width="15%">번호</td>
+            <td width="15%">생일</td>
+            <td width="5%">탈퇴</td>
+            <td width="5%">어드민</td>
+            
         </tr>
         <tr>
             <td><p>${member.mbId }</p></td>
@@ -36,6 +38,7 @@
 
     <a href="/member-form?id=${member.mbId}">수정</a>
     <a href="/member-delete?id=${member.mbId}">삭제</a>
+   
     
  
 </body>

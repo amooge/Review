@@ -21,7 +21,7 @@
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+                Others
               </button>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="/member">Member</a></li>
@@ -32,8 +32,66 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav>&nbsp;
 
+    <div class="row">
+      <div class="col">
+        
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">포스트 보기</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="col">
+        
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">포스트 보기</a>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col">
+        
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">포스트 보기</a>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col">
+        
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">포스트 보기</a>
+          </div>
+        </div>
+
+
+      </div>
+      
+
+
+
+    </div>
     
   
 </body>

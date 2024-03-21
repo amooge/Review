@@ -1,0 +1,28 @@
+table { 
+	font-size:12t; text-align:center; vertical-align:middle !important;
+	 }
+a:link { 
+	text-decoration: none; 
+	}
+.mymargin5 {
+	 margin:10px 0px 10px 10px; 
+	 }
+.mycolor1 { 
+	background-color:steelblue  !important; color:white  !important;
+	 }
+
+.mycolor2 
+{ 
+	background-color:lightsteelblue  !important;color:white !important;
+	}
+
+.mycolor3 
+{ 
+	background-color:lightyellow  !important; color:white !important;
+	}
+.mycolor4
+{ 
+	background-color: lightskyblue !important; color:white !important;
+	}
+	
+
