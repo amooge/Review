@@ -5,12 +5,13 @@
 <html lang="kr">
 <head>
 <meta charset="UTF-8">
-<title>Member Detail Page</title>
+<title>Member Add Page</title>
 </head>
 <body>
-  <h1>Member update</h1>
+  <h1>회원정보 추가</h1>
 
-    <form action="/member-add-update" method="post">
+    <form name="form1" action="/member-add-update" method="post">
+      <table class="table table-bordered table-sm mymargin5">
         <input name="mbId" type="hidden" value="${member.mbId}"/>
        Name : <input name="mbName" type="text" value="${member.mbName}"/>
         Password :<input name="mbPw" type="password" value="${member.mbPw}"/>
@@ -22,6 +23,7 @@
         <!--Admin : <input name="mbAdmin" type="hidden" value="${member.mbAdmin}"/>-->
 
         <input type="submit" value="save"/>
+      </table>
     </form>
   
 

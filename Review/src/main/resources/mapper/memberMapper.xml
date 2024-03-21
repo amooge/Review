@@ -37,6 +37,11 @@
 		WHERE mb_id=#{mbId}
 	</update>
 	
+	<select id="searchmb" parameterType="java.util.Map">
+		
+	</select>
+	
+	
 	
 </mapper>
 

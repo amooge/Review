@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(value = {"com.eugeneprogram.post.dao", "com.eugeneprogram.member.dao", "com.eugeneprogram.category.dao"})
 @EnableTransactionManagement
 public class DbConfig {
-	
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
@@ -30,4 +29,5 @@ public class DbConfig {
 		final SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory);
 		return sqlSessionTemplate;
 	}
+
 }
