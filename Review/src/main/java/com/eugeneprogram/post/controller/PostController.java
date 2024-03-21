@@ -1,6 +1,4 @@
 package com.eugeneprogram.post.controller;
-// test commit
-
 
 import java.util.HashMap;
 import java.util.Map;
