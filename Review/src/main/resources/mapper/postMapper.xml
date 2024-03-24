@@ -24,8 +24,8 @@
 	
 	
 	<insert id="insertPost" parameterType="java.util.Map">
-		INSERT INTO pst(pst_id, pst_title, pst_text, pst_create_date, pst_update_date, pst_score, pst_comment_cnt, pst_image, ctg_id, mb_id)
-		VALUES(#{pstId}, #{pstTitle}, #{pstText}, #{pstCreateDate}, #{pstUpdateDate}, #{psstScore}, #{pstCommentCnt}, #{pstImage}, #{ctgId}, #{mbId})
+		INSERT INTO pst(pst_id, pst_title, pst_text, pst_create_date, pst_score, pst_comment_cnt, pst_image, ctg_id, mb_id)
+		VALUES(#{pstId}, #{pstTitle}, #{pstText}, #{pstCreateDate}, #{psstScore}, #{pstCommentCnt}, #{pstImage}, #{ctgId}, #{mbId})
 	</insert>
 	
 	
@@ -33,7 +33,6 @@
 		UPDATE pst SET
 			pst_title = #{pstTitle},
 			pst_text = #{pstText},
-			pst_create_date = #{pstCreateDate},
 			pst_update_date = #{pstUpdateDate},
 			pst_score = #{pstScore},
 			pst_comment_cnt = #{pstCommentCnt},

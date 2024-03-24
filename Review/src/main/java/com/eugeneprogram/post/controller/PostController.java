@@ -56,8 +56,8 @@ public class PostController {
 	public String postAddUpdate(@RequestParam(required = false, defaultValue = "0") long pstId,
 							 @RequestParam("text") String text,
 							 @RequestParam("title") String title,
-							 @RequestParam("createDate") String createDate,
-							 @RequestParam("updateDate") String updateDate,
+							 @RequestParam("createDate") String pstCreateDate,
+							 @RequestParam("updateDate") String pstUpdateDate,
 							 @RequestParam("mbId") long mbId,
 							 @RequestParam("ctgId") long ctgId) throws Exception{
 		
@@ -65,8 +65,8 @@ public class PostController {
 		pst.put("pstId", pstId);
 		pst.put("pstTitle", title);
 		pst.put("pstText", text);
-		pst.put("pstCreateDate", createDate);
-		pst.put("pstUpdateDate", updateDate);
+		pst.put("pstCreateDate", pstCreateDate);
+		pst.put("pstUpdateDate", pstUpdateDate);
 		pst.put("mbId", mbId);
 		pst.put("ctgId", ctgId);
 		

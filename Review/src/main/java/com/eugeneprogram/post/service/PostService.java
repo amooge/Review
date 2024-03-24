@@ -60,6 +60,7 @@ public class PostService {
 	public void addAndUpdate(Map<String, Object> pst) throws Exception{
 		if(postMapper.getOne((long) pst.get("pstId")) == null || pst.get("pstId") == null) {
 			pst.put("pstCreateDate", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+			
 			postMapper.insertPost(pst);
 		}else {
 			pst.put("pstUpdateDate", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
