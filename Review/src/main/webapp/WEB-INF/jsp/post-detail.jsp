@@ -23,6 +23,7 @@
     </table>
     <c:choose>
       <c:when test="${post.pstCreateDate ne null}">
+      <c:when test="${post.pstUpdateDate eq null}">
         create date: ${post.pstCreateDate} <br/>
       </c:when>
       <c:otherwise>
