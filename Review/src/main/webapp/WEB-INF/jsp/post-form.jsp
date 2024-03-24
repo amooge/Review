@@ -14,7 +14,7 @@
 
     <form action="/post-add-update" method="POST">
         title: <input name="title" type="text" value="${post.pstTitle}"/>
-        <textarea name="text" id="editor" value="${post.pstText}"></textarea>
+        <textarea name="text" id="editor">${post.pstText}</textarea>
         <!--
         text: <input name="text" type="text" value="${post.pstText}"/>
         -->
