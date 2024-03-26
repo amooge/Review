@@ -14,7 +14,24 @@
 				ORDER BY pst_score DESC
 			</otherwise>
 		</choose>
-    </select>	
+    </select>
+    
+    <select id="getListPage" parameterType="com.eugeneprogram.data.RequestList" resultType="java.util.Map">
+		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText
+        FROM pst
+		OFFSET #{pageable.offset} ROWS FETCH NEXT #{pageable.pageSize} ROWS ONLY
+		
+	</select>	
+	
+	<!-- 
+	WHERE pst_title like CONCAT('%', #{search}, '%')
+	-->
+	
+	<select id="getListPostCount" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) AS CNT
+		FROM pst
+	</select>
+	
     
     <select id="getOne" parameterType="long" resultType="java.util.Map">
 		SELECT pst_id pstId, pst_title pstTitle, pst_text pstText, pst_create_date pstCreateDate, pst_update_date pstUpdateDate

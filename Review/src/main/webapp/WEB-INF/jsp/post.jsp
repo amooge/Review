@@ -25,11 +25,11 @@
       <th>Title</th>
       <th>text</th>
     </tr>
-  <c:forEach var="list" items="${list}" varStatus="status">
+  <c:forEach var="list" items="${list.content}" varStatus="status">
     <tr>
         <td><p>${list.pstId }</p></td>
         <td>
-          <a href="/post-detail?id=${list.pstId}">
+          <a href="/post-detail?id=${list.data.pstId}">
             <p>${list.pstTitle }</p>
           </a>
         </td>
@@ -38,6 +38,19 @@
   </c:forEach>
           
   </table>
+<!-- 이전 페이지로 이동하는 링크 -->
+<c:if test="${not list.first}">
+    <a href="?page=${list.number - 1}">이전 페이지</a>
+</c:if>
+
+<!-- 현재 페이지 번호 표시 -->
+현재 페이지: ${list.number + 1}
+
+<!-- 다음 페이지로 이동하는 링크 -->
+<c:if test="${not list.last}">
+    <a href="?page=${list.number + 1}">다음 페이지</a>
+</c:if>
+
   <a href="/post-form">post_add</a>
 </body>
 </html>

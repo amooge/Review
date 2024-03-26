@@ -8,20 +8,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-
 import org.springframework.beans.factory.annotation.Autowired; //  
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
+import com.eugeneprogram.data.RequestList;
 import com.eugeneprogram.post.dao.PostMapper;
+
 
 @Service
 public class PostService {
 	@Autowired
 	PostMapper postMapper;
 	
-	public List<Map<String, Object>>  getList(String search, int kind) throws Exception {
+	public Page<Map<String, Object>>  getList(String search, int kind, Pageable pageable) throws Exception {
 		Map<String, Object> searchList = new HashMap<String, Object>();
-		
+		Map<String, Object> post = new HashMap<String, Object>();
 		if(search == null) {
 			searchList.put("search", "");
 			//search = "";
@@ -29,9 +33,20 @@ public class PostService {
 			searchList.put("search", search);
 		}
 		
-		searchList.put("kind", kind);
 		
-		return postMapper.getList(searchList);
+		RequestList<?> requestList = RequestList.builder()
+				.data(post)
+				.pageable(pageable)
+				.build();
+		
+		  List<Map<String, Object>> content = postMapper.getListPage(requestList);
+		  int total = postMapper.getListPostCount(post);
+		  
+		 
+		//searchList.put("kind", kind);
+		
+		//return postMapper.getList(searchList);
+		return new PageImpl<>(content, pageable, total);
 	}
 	
 	/*

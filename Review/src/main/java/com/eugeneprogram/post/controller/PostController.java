@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
-
 
 import com.eugeneprogram.post.service.PostService;
 
@@ -23,9 +24,10 @@ public class PostController {
 	@RequestMapping(value = "/post")
 	public String goPost(Model model,
 						 @RequestParam(name="search", required=false) String search,
-						 @RequestParam(name="kind", defaultValue="0") int kind) throws Exception {
+						 @RequestParam(name="kind", defaultValue="0") int kind,
+						 @PageableDefault(size = 5) Pageable pageable) throws Exception {
 		
-		model.addAttribute("list", postService.getList(search, kind));
+		model.addAttribute("list", postService.getList(search, kind, pageable));
 		return "post";
 	}
 	
