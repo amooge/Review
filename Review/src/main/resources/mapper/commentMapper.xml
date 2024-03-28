@@ -9,7 +9,7 @@
     </select>
     
     <select id="getCommentById" parameterType="long" resultType="java.util.Map">
-        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
+        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate, pst_id AS pstId
         FROM cmt
         WHERE cmt_id = #{cmtId}
     </select>

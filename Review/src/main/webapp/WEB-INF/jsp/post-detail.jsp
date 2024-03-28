@@ -60,7 +60,7 @@
            </tr>
           </c:forEach>
     </table>
-    <a href="/comment-form">comment_add</a>
+    <a href="/comment-form?pstId=${post.pstId}">comment_add</a>
 
 </body>
 </html>

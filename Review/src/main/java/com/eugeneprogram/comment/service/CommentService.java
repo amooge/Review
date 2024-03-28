@@ -22,16 +22,22 @@ public class CommentService {
     	return commentMapper.commentList();
     }
 
-    public Map<String, Object> getComment(Long cmtId)throws Exception{
+    public Map<String, Object> getComment(Long cmtId, Long pstId)throws Exception{
 		Map<String, Object> comment = new HashMap<String, Object>();
 		//Long 0 == null
+		
+		if(pstId != null) {
+			comment.put("pstId", pstId);
+		}
+		
 		if(cmtId.equals(null)) {
 			comment.put("text", "");
 			
 		}else {
-		 comment = commentMapper.getCommentById(cmtId);
+			comment = commentMapper.getCommentById(cmtId);
 		 
 		}
+		
 		return comment;
 	}
     //추가 업데이트

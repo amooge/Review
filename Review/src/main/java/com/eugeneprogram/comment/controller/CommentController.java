@@ -25,15 +25,19 @@ public class CommentController {
 		return "comment";
 	}
 	//댓글을 보여주는 comment-detail.jsp로 이동
+	
 	@RequestMapping(value = "/comment-detail")
 	public String commentDetail(Model model, @RequestParam(required = false, defaultValue = "0") Long id) throws Exception{
-		model.addAttribute("comment", commentService.getComment(id));	
+		model.addAttribute("comment", commentService.getComment(id, null));	
 		return "comment-detail";
 	}//?????????????
+	
+	
 	@RequestMapping(value = "/comment-form")
-	public String commentForm(Model model, @RequestParam(required = false, defaultValue = "0") long id) throws Exception{
+	public String commentForm(Model model, @RequestParam(required = false, defaultValue = "0") Long id,
+										   @RequestParam(name="pstId", required = false) Long pstId) throws Exception{
+		model.addAttribute("comment", commentService.getComment(id, pstId));		
 		
-		model.addAttribute("comment", commentService.getComment(id));		
 		return "comment-form";
 	}
 	//댓글 작성
@@ -52,13 +56,13 @@ public class CommentController {
 		
 		commentService.addAndUpdate(cmt);
 		
-		return "redirect:comment";
+		return "redirect:post";
 	}	
 	
 	//댓글 삭제
 	@RequestMapping("/comment-delete")
     public String deleteComment(@RequestParam("id") long cmtId) throws Exception{
 		commentService.deleteComment(cmtId);
-        return "redirect:comment";
+        return "redirect:post";
     }
 }
