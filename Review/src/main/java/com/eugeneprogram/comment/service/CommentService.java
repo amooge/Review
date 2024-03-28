@@ -1,4 +1,4 @@
-ackage com.eugeneprogram.comment.service;
+package com.eugeneprogram.comment.service;
 
 import java.util.List;
 import java.util.Map;
