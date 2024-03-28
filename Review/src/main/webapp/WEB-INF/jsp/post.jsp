@@ -29,7 +29,7 @@
     <tr>
         <td><p>${list.pstId }</p></td>
         <td>
-          <a href="/post-detail?id=${list.data.pstId}">
+          <a href="/post-detail?id=${list.pstId}">
             <p>${list.pstTitle }</p>
           </a>
         </td>
@@ -40,7 +40,7 @@
   </table>
 <!-- 이전 페이지로 이동하는 링크 -->
 <c:if test="${not list.first}">
-    <a href="?page=${list.number - 1}">이전 페이지</a>
+    <a href="?page=${list.number - 1}">이전</a>
 </c:if>
 
 <!-- 현재 페이지 번호 표시 -->
@@ -48,7 +48,7 @@
 
 <!-- 다음 페이지로 이동하는 링크 -->
 <c:if test="${not list.last}">
-    <a href="?page=${list.number + 1}">다음 페이지</a>
+    <a href="?page=${list.number + 1}">다음</a>
 </c:if>
 
   <a href="/post-form">post_add</a>

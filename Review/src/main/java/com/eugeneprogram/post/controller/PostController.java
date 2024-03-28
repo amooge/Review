@@ -12,11 +12,14 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
 
 import com.eugeneprogram.post.service.PostService;
+import com.eugeneprogram.comment.service.CommentService;
 
 @Controller
 public class PostController {
 	@Autowired
 	PostService postService;
+	@Autowired
+	CommentService commentService;
 	
 	/*
 	 * 개시물 목록을 보여주는 post.jsp 페이지로 이동
@@ -28,6 +31,7 @@ public class PostController {
 						 @PageableDefault(size = 5) Pageable pageable) throws Exception {
 		
 		model.addAttribute("list", postService.getList(search, kind, pageable));
+		
 		return "post";
 	}
 	
@@ -36,7 +40,8 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/post-detail")
 	public String postDetail(Model model, @RequestParam("id") long id) throws Exception{
-		model.addAttribute("post", postService.getForm(id));	
+		model.addAttribute("post", postService.getForm(id));
+		model.addAttribute("commentList", commentService.commentList());
 		return "post-detail";
 	}
 	

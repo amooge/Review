@@ -31,7 +31,8 @@ public class CommentController {
 		return "comment-detail";
 	}//?????????????
 	@RequestMapping(value = "/comment-form")
-	public String commentForm(Model model, @RequestParam(required = false, defaultValue = "0") Long id) throws Exception{
+	public String commentForm(Model model, @RequestParam(required = false, defaultValue = "0") long id) throws Exception{
+		
 		model.addAttribute("comment", commentService.getComment(id));		
 		return "comment-form";
 	}

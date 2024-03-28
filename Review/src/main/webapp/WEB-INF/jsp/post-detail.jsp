@@ -35,5 +35,32 @@
 <!--
   <button type="button" onclick="href='/post-form?id=${post.pstId}'">수정</button>
 -->  
+
+<h2>댓글</h2>
+    
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>comment</th>
+        </tr>
+    <c:forEach var="commentList" items="${commentList}" varStatus="status">
+        <tr>
+          <td><p>${commentList.cmtId}</p></td>
+          <td><p>${commentList.cmtText }</p></td>
+          <td>
+           <a href="/comment-form?id=${commentList.cmtId}">
+           <p>수정</p>
+           </a>       
+           </td>
+           <td>
+           <a href="/comment-detail?id=${commentList.cmtId}">
+           <p>삭제</p>
+           </a>       
+           </td>
+           </tr>
+          </c:forEach>
+    </table>
+    <a href="/comment-form">comment_add</a>
+
 </body>
 </html>
