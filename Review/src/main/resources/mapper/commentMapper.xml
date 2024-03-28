@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eugeneprogram.comment.dao.CommentMapper">
+    <!-- 댓글 조회 -->
+    <select id="commentList" resultType="java.util.Map">
+        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
+        FROM cmt
+    </select>
+    
+    <select id="getCommentById" parameterType="long" resultType="java.util.Map">
+        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
+        FROM cmt
+        WHERE cmt_id = #{cmtId}
+    </select>
+
+    <!-- 댓글 작성 -->
+    <insert id="insertComment" parameterType="java.util.Map">
+        INSERT INTO cmt(cmt_parent, cmt_text, cmt_create_date, mb_id, pst_id)
+        VALUES(1, #{cmtText}, #{cmtCreateDate}, 1, 4)
+    </insert>
+    
+    <!-- 댓글 수정 -->
+    <update id="updateComment" parameterType="java.util.Map">
+        UPDATE cmt
+        SET cmt_text = #{cmtText},
+        mb_id = 1,
+        cmt_parent=1,
+        pst_id = 4
+            <!--cmt_create_date = now()  현재 시간을 기록하도록 설정-->
+        WHERE cmt_id = #{cmtId}
+    </update>
+    
+    <!-- 댓글 삭제 -->
+    <delete id="deleteComment" parameterType="java.util.Map">
+        DELETE FROM cmt
+        WHERE cmt_id = #{cmtId}
+    </delete>
+</mapper>
