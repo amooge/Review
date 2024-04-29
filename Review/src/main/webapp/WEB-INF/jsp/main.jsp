@@ -11,29 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Game Review</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Others
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="/member">Member</a></li>
-                <li><a class="dropdown-item" href="/post">Post</a></li>
-                <li><a class="dropdown-item" href="/">Home</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>&nbsp;
-
+    <jsp:include page="/WEB-INF/jsp/navbar.jsp"></jsp:include> <!-- <nav><nav>를 따로 다른 jsp파일에 둠: 유지보수 용이-->
+    
     <div class="row">
       <div class="col">
         
