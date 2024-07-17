@@ -26,11 +26,19 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/post")
 	public String goPost(Model model,
-						 @RequestParam(name="search", required=false) String search,
-						 @RequestParam(name="kind", defaultValue="0") int kind,
+						 @RequestParam(name="search", required=false, defaultValue="") String search,
+						 @RequestParam(name="category", required=false, defaultValue="0") int category,
+						 @RequestParam(name="kind", defaultValue="0") int sort,
+						 @RequestParam(name="group", defaultValue="1") int group,
 						 @PageableDefault(size = 5) Pageable pageable) throws Exception {
 		
-		model.addAttribute("list", postService.getList(search, kind, pageable));
+		Map<String, Object> searchList = new HashMap<String, Object>();
+		searchList.put("search", search);
+		searchList.put("kind", sort);
+		
+		model.addAttribute("searchList", searchList);
+		model.addAttribute("group", group);
+		model.addAttribute("list", postService.getList(category, search, sort, pageable));
 		
 		return "post";
 	}

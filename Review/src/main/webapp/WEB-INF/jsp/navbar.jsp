@@ -16,6 +16,16 @@
               <li><a class="dropdown-item" href="/">Home</a></li>
             </ul>
           </li>
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="/post">FPS</a></li>
+              <li><a class="dropdown-item" href="/post">RPG</a></li>
+              <li><a class="dropdown-item" href="/post">survival</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

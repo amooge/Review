@@ -23,29 +23,26 @@ public class PostService {
 	@Autowired
 	PostMapper postMapper;
 	
-	public Page<Map<String, Object>>  getList(String search, int kind, Pageable pageable) throws Exception {
+	public Page<Map<String, Object>>  getList(int category, String search, int kind, Pageable pageable) throws Exception {
 		Map<String, Object> searchList = new HashMap<String, Object>();
 		Map<String, Object> post = new HashMap<String, Object>();
 		if(search == null) {
 			searchList.put("search", "");
-			//search = "";
 		}else {
 			searchList.put("search", search);
 		}
 		
+		searchList.put("kind", kind); 
 		
 		RequestList<?> requestList = RequestList.builder()
-				.data(post)
+				.data(searchList)
 				.pageable(pageable)
 				.build();
 		
 		  List<Map<String, Object>> content = postMapper.getListPage(requestList);
-		  int total = postMapper.getListPostCount(post);
 		  
-		 
-		//searchList.put("kind", kind);
-		
-		//return postMapper.getList(searchList);
+		  int total = postMapper.getListPostCount(searchList);
+		  
 		return new PageImpl<>(content, pageable, total);
 	}
 	

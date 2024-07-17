@@ -3,5 +3,8 @@
 
 <mapper namespace="com.eugeneprogram.post.dao.CategoryMapper">
     
-	
+	<select id="getAllCategory" resultType="java.util.Map">
+		SELECT ctg_id ctgId, ctg_name ctgName, ctg_parent ctgParent 
+		FROM ctg
+	</select>
 </mapper>

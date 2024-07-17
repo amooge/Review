@@ -11,7 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <jsp:include page="/WEB-INF/jsp/navbar.jsp"></jsp:include> <!-- <nav><nav>를 따로 다른 jsp파일에 둠: 유지보수 용이-->
+    <jsp:include page="/WEB-INF/jsp/navbar.jsp" flush="false"/>
+    <!--   <nav><nav>를 따로 다른 jsp파일에 둠: 유지보수 용이-->
     
     <div class="row">
       <div class="col">
