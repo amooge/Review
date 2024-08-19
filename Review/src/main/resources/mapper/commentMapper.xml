@@ -6,8 +6,22 @@
     <select id="commentList" resultType="java.util.Map">
         SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
         FROM cmt
+        ORDER BY cmt_create_date DESC
+    LIMIT #{offset}, #{limit}
     </select>
-    
+    <select id="commentListLatest" resultType="java.util.Map">
+        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
+        FROM cmt
+        ORDER BY cmt_create_date DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="commentListOldest" resultType="java.util.Map">
+        SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate
+        FROM cmt
+        ORDER BY cmt_create_date ASC
+        LIMIT #{offset}, #{limit}
+    </select>
     <select id="getCommentById" parameterType="long" resultType="java.util.Map">
         SELECT cmt_id AS cmtId, cmt_parent AS cmtParent, cmt_text AS cmtText, cmt_create_date AS cmtCreateDate, pst_id AS pstId
         FROM cmt
@@ -36,4 +50,37 @@
         DELETE FROM cmt
         WHERE cmt_id = #{cmtId}
     </delete>
+    <!--좋아요 관련-->
+    <select id="likeList" resultType="java.util.Map">
+        SELECT li_id AS liId, cmt_id AS cmtID, mb_id AS mbId
+        FROM `like`
+    </select>
+     <!-- 특정 댓글과 사용자에 대한 좋아요 조회 -->
+    <select id="getLikeByCmtIdAndMbId" parameterType="map" resultType="java.util.Map">
+        SELECT lk_id AS lkId, cmt_id AS cmtId, mb_id AS mbId
+        FROM `like`
+        WHERE cmt_id = #{cmtId} AND mb_id = 1
+        LIMIT 1
+    </select>
+     <!-- 좋아요 추가 -->
+    <insert id="insertLike" parameterType="java.util.Map">
+        INSERT INTO `like` (cmt_id, mb_id)
+        VALUES (#{cmtId}, 1)
+    </insert>
+    
+    <!-- 좋아요 삭제 -->
+    <delete id="deleteLike" parameterType="java.util.Map">
+        DELETE FROM `like`
+        WHERE cmt_id = #{cmtId} AND mb_id = 1
+    </delete>
+    <!-- 특정 댓글의 좋아요 수 조회 -->
+    <select id="countLikes" parameterType="long" resultType="int">
+        SELECT COUNT(*)
+        FROM `like`
+        WHERE cmt_id = #{cmtId}
+    </select>
+    <select id="countTotalComments" resultType="int">
+    SELECT COUNT(*)
+    FROM cmt
+    </select>    
 </mapper>
