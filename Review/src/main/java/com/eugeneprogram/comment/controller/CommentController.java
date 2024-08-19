@@ -56,7 +56,7 @@ public class CommentController {
 	public String commentForm(Model model, @RequestParam(required = false, defaultValue = "0") Long id,
 										   @RequestParam(name="pstId", required = false) Long pstId) throws Exception{
 		model.addAttribute("comment", commentService.getComment(id, pstId));		
-		model.addAttribute("like", commentService.getComment(id));
+		model.addAttribute("like", commentService.getComment(id, pstId));
 		return "comment-form";
 	}
 	//댓글 작성
