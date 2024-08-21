@@ -13,7 +13,7 @@
       text: <input name="cmtText" type="text" value="${comment.cmtText}"/>      
       <input name="cmtId" type="hidden" value="${comment.cmtId}"/>
       <input name="mbId" type="hidden" value="1"/>
-      <input name="pstId" type="hidden" value="4"/>
+      <input name="pstId" type="hidden" value="${param.pstId}"/>
       <input name="cmtParent" type="hidden" value="1"/>
       
       <input type="submit" value="save"/>
