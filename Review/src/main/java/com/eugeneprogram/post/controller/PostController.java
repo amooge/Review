@@ -47,11 +47,32 @@ public class PostController {
 	 * 개시물(단일값)을 보여주는 post-detail.jsp 페이지로 이동
 	 */
 	@RequestMapping(value = "/post-detail")
-	public String postDetail(Model model, @RequestParam("id") long id) throws Exception{
-		model.addAttribute("post", postService.getForm(id));
-		model.addAttribute("commentList", commentService.commentList());
-		return "post-detail";
-	}
+	    public String postDetail(Model model,
+	                             @RequestParam("id") long id,
+	                             @RequestParam(value = "page", defaultValue = "1") int page,
+	                             @RequestParam(value = "sort", defaultValue = "latest") String sort) throws Exception {
+		 
+	        // 포스트 정보 가져오기
+	        model.addAttribute("post", postService.getForm(id));
+	        
+	        // 페이지네이션 및 정렬 설정
+	        int limit = 5; // 한 페이지에 표시할 댓글 수
+	        int offset = (page - 1) * limit; // 페이지 오프셋 계산
+
+	        // 댓글 목록 가져오기
+	        List<Map<String, Object>> commentList = commentService.getComments(id, sort, offset, limit);
+
+	        int totalComments = commentService.countTotalComments(id); // 전체 댓글 수
+	        int totalPages = (int) Math.ceil((double) totalComments / limit); // 총 페이지 수                
+
+
+	        model.addAttribute("commentList", commentList);
+	        model.addAttribute("totalPages", totalPages);
+	        model.addAttribute("currentPage", page);
+	        model.addAttribute("sort", sort);
+
+	        return "post-detail";
+	    }
 	
 	/*
 	 * 추가 수정할 값을 가져옴 
