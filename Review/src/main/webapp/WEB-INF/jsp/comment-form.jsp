@@ -7,17 +7,17 @@
 <title>comment write</title>
 </head>
 <body>
-  <h1>write comment<h1>
+  <h1>write comment</h1>
   
-    <form action="/comment-add-update" method="POST">
+    <form action="/comment-update" method="POST">
       text: <input name="cmtText" type="text" value="${comment.cmtText}"/>      
       <input name="cmtId" type="hidden" value="${comment.cmtId}"/>
       <input name="mbId" type="hidden" value="1"/>
-      <input name="pstId" type="hidden" value="${param.pstId}"/>
-      <input name="cmtParent" type="hidden" value="1"/>
-      
+      <input name="pstId" type="hidden" value="${comment.pstId}"/>
+      <input name="cmtParent" type="hidden" value="1"/>      
       <input type="submit" value="save"/>
    </form>
    
 </body>
+</html>
 </html>
