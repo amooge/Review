@@ -4,16 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>comment detail</title>
+<title>comment write</title>
 </head>
-  <body>
-    <h1>real delete?<h1>
-    
-      <tr>
-      <td><p>${comment.cmtId }</p></td>
-      <td><p>${comment.cmtText }</p></td>
-      </tr>
-
-      <a href="/comment-delete?id=${comment.cmtId}">삭제</a>
-   </body>
- </html>
+<body>
+  <h1>write comment</h1>
+  
+    <form action="/comment-add" method="POST">
+      text: <input name="cmtText" type="text" value="${comment.cmtText}"/>      
+      <input name="cmtId" type="hidden" value="${comment.cmtId}"/>
+      <input name="mbId" type="hidden" value="1"/>
+      <input name="pstId" type="hidden" value="${param.pstId}"/>
+      <input name="cmtParent" type="hidden" value="1"/>      
+      <input type="submit" value="save"/>
+   </form>
+   
+</body>
+</html>
